@@ -1,0 +1,17 @@
+####when we want to directly ssh into ansible instance and then trigger a playbook 
+
+
+###note that ansible will already configured to the another target instance to execute that playbook on it..
+
+
+
+##this is configuration to put in execute shell in jenkins 
+
+openssl version
+chmod 400 ${PRIVATE_KEY_FILE}
+ls -l ${PRIVATE_KEY_FILE}
+ssh -i "${PRIVATE_KEY_FILE}" -o StrictHostKeyChecking=no ubuntu@ec2-3-131-133-87.us-east-2.compute.amazonaws.com "ansible-playbook  /home/ubuntu/ansible_doc/wordpress-lamp_ubuntu1804/wordpress_play/word2.yml"
+
+
+#also you need to save your credentials(pem) in Build Environment sections under  Use secret text(s) or file(s) ?  with the name defined in configuration as 
+# PRIVATE_KEY_FILE
